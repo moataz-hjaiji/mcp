@@ -320,7 +320,7 @@ export const generatedTools: ToolDefinition[] = [
   },
   {
     name: "application-dropDeployment",
-    description: "Drop deployment (application). [POST /application.dropDeployment]",
+    description: "Deploy an application from an uploaded zip archive (drag-and-drop deployment). [POST /application.dropDeployment]",
     tag: "application",
     method: "POST",
     path: "/application.dropDeployment",
@@ -5645,7 +5645,7 @@ export const generatedTools: ToolDefinition[] = [
   },
   {
     name: "user-one",
-    description: "Get an user by ID. Requires: userId. [GET /user.one]",
+    description: "Get a user by ID. Requires: userId. [GET /user.one]",
     tag: "user",
     method: "GET",
     path: "/user.one",
@@ -5741,7 +5741,7 @@ export const generatedTools: ToolDefinition[] = [
   },
   {
     name: "user-update",
-    description: "Update an user. [POST /user.update]",
+    description: "Update a user. [POST /user.update]",
     tag: "user",
     method: "POST",
     path: "/user.update",
@@ -5801,7 +5801,7 @@ export const generatedTools: ToolDefinition[] = [
   },
   {
     name: "user-remove",
-    description: "Delete an user. Requires: userId. [POST /user.remove]",
+    description: "Delete a user. Requires: userId. [POST /user.remove]",
     tag: "user",
     method: "POST",
     path: "/user.remove",
@@ -6950,7 +6950,7 @@ export const generatedTools: ToolDefinition[] = [
   },
   {
     name: "schedule-list",
-    description: "List (scheduled job). Requires: id, scheduleType. [GET /schedule.list]",
+    description: "List scheduled jobs. Requires: id, scheduleType. [GET /schedule.list]",
     tag: "schedule",
     method: "GET",
     path: "/schedule.list",
@@ -7010,7 +7010,7 @@ export const generatedTools: ToolDefinition[] = [
   },
   {
     name: "volumeBackups-list",
-    description: "List (volume backup). Requires: id, volumeBackupType. [GET /volumeBackups.list]",
+    description: "List volume backups. Requires: id, volumeBackupType. [GET /volumeBackups.list]",
     tag: "volumeBackups",
     method: "GET",
     path: "/volumeBackups.list",

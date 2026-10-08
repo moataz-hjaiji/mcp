@@ -95,8 +95,8 @@ function capitalize(text: string): string {
 }
 
 function withArticle(noun: string): string {
-  // "SSH" and "SSO" are spelled out, so they start with a vowel sound.
-  return `${/^([aeiou]|SS[HO]\b)/i.test(noun) ? "an" : "a"} ${noun}`;
+  // Chosen by sound: "SSH" and "SSO" are spelled out, "user" starts with a "y" sound.
+  return `${/^([aeio]|u(?!ser|ni)|SS[HO]\b)/i.test(noun) ? "an" : "a"} ${noun}`;
 }
 
 function pluralize(noun: string): string {
@@ -110,6 +110,7 @@ type Template = (resource: string) => string;
 // Actions that mean the same thing for every tag they appear on.
 const ACTION_TEMPLATES: Record<string, Template> = {
   all: (r) => `List ${pluralize(r)}`,
+  list: (r) => `List ${pluralize(r)}`,
   one: (r) => `Get ${withArticle(r)} by ID`,
   create: (r) => `Create ${withArticle(r)}`,
   update: (r) => `Update ${withArticle(r)}`,
@@ -137,6 +138,8 @@ const ACTION_TEMPLATES: Record<string, Template> = {
 const OPERATION_OVERRIDES: Record<string, string> = {
   "application-deploy":
     "Queue a deployment of an application. Returns before the build finishes; use deployment-all to check its status",
+  "application-dropDeployment":
+    "Deploy an application from an uploaded zip archive (drag-and-drop deployment)",
   "application-redeploy":
     "Queue a redeployment of an application. Returns before the build finishes; use deployment-all to check its status",
   "compose-deploy":

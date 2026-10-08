@@ -36,6 +36,18 @@ describe("describeOperation", () => {
     ).toBe("Create an SSH key. [POST /sshKey.create]");
   });
 
+  it('uses "a" before a consonant sound spelled with a vowel', () => {
+    expect(describeOperation({ operationId: "user-one", method: "get", path: "/user.one" })).toBe(
+      "Get a user by ID. [GET /user.one]",
+    );
+  });
+
+  it("treats list like all", () => {
+    expect(
+      describeOperation({ operationId: "schedule-list", method: "get", path: "/schedule.list" }),
+    ).toBe("List scheduled jobs. [GET /schedule.list]");
+  });
+
   it("humanizes actions without a template and keeps the resource as context", () => {
     expect(
       describeOperation({
