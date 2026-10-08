@@ -17,7 +17,6 @@ describe("deriveAnnotations", () => {
     "settings-cleanUnusedVolumes",
     "docker-killContainer",
     "dockerDiskUsage-pruneBuildCache",
-    "application-dropDeployment",
     "application-clearDeployments",
     "whitelabeling-reset",
     "user-revokeSession",
@@ -33,6 +32,10 @@ describe("deriveAnnotations", () => {
       deriveAnnotations("post", "settings-updateDockerCleanup").destructiveHint,
     ).toBeUndefined();
     expect(deriveAnnotations("post", "settings-updateLogCleanup").destructiveHint).toBeUndefined();
+  });
+
+  it("does not treat dropDeployment (zip upload) as destructive", () => {
+    expect(deriveAnnotations("post", "application-dropDeployment").destructiveHint).toBeUndefined();
   });
 
   it("never marks a GET operation destructive", () => {

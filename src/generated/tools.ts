@@ -327,7 +327,7 @@ export const generatedTools: ToolDefinition[] = [
     schema: z.object({}),
     annotations: {
       title: "Application DropDeployment",
-      ...{"destructiveHint":true,"openWorldHint":true},
+      ...{"openWorldHint":true},
     },
   },
   {

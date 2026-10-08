@@ -7,6 +7,8 @@ export interface DerivedAnnotations {
 
 // Verbs that discard data or forcibly end something. Matched against whole
 // words of the action, so "cleanAll" matches but "updateDockerCleanup" does not.
+// "drop" is left out on purpose: its only use is application-dropDeployment,
+// which deploys an uploaded (drag-and-drop) zip.
 const DESTRUCTIVE_WORDS = new Set([
   "delete",
   "remove",
@@ -14,7 +16,6 @@ const DESTRUCTIVE_WORDS = new Set([
   "clear",
   "prune",
   "kill",
-  "drop",
   "reset",
   "wipe",
   "purge",
